@@ -1,0 +1,12 @@
+
+
+
+CHANGELOG
+-----------------------------------------------
+
+2011-05-24
+
+	* changed content selector from css class 
+	  to element seelector. 
+	  
+	* added autoId 

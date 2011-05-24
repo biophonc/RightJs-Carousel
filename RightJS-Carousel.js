@@ -7,7 +7,7 @@ var UICarousel = new Class({
 	wrapper: 	'.slider',
 
 	// CSS: movable container
-	content: 	'.slider-content',
+	content: 	'UL',
 	
 	// CSS: buttons
 	css_previous:'.prev',
@@ -23,6 +23,9 @@ var UICarousel = new Class({
 	
 	// id of widget 
 	id:			'',
+	
+	// autoId
+	autoId: 0,
 	
 	// itemWidth
 	itemWidth:	0,
@@ -45,7 +48,9 @@ var UICarousel = new Class({
 	},
 	
 	setId: function(id) {
-		this.id=id;
+		_id = UICarousel.prototype.autoId++;
+		this.id = 'slider-'+_id;
+		$(id)._.id=this.id;
 	},
 	
 	// updates the internal index
