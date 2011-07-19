@@ -2,7 +2,7 @@
 
 
 CHANGELOG
------------------------------------------------
+---------------------------------------------------------------
 
 2011-05-24
 
@@ -10,3 +10,23 @@ CHANGELOG
 	  to element seelector. 
 	  
 	* added autoId 
+	
+2011-07-18
+
+	* removed direct/static event binding in favour 
+	  of event bubbling
+	
+	* added programmatical generation of pager items
+	
+	* added dis/en-abler for rotation mode when window 
+	  switches between focus and blur state
+	  
+	* added basic demo html file
+
+2011-07-19
+	
+	* added play/pause button
+	
+	* moved options from title attr to class names
+	
+	* added some more conditions for window on blur/focus 

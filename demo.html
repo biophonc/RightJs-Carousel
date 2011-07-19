@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>RightJS-Carousel Demo</title>
+	<style>
+		.slider {
+			font-family: Helvetica, Arial, sans-serif;
+		}
+		.slider-content-wrapper {
+			width: 800px;
+			height: 300px;
+			background-color: #CF0;
+			position: relative;
+			overflow: hidden;
+			border-radius: 15px 0 15px 0;
+			box-shadow: 0px 0px 15px rgba(0,0,0,.4);
+
+		}
+		.slider-content-wrapper > ul {
+			position: absolute;	
+			list-style: none;
+			width: 90000px;
+			left:0; 
+			top:0;
+			margin:0;
+			padding:0;
+		}
+		.slider-content-wrapper > ul > li {
+			width: 800px;
+			height: 300px;	
+			float: left;
+			margin:0;
+			padding:0;
+		}
+		
+		.fancy-1 > article > h2,
+		.fancy-2 > article > h2,
+		.fancy-3 > article > h2 {
+			font-size: 60px;
+			line-height: 68px;
+			font-weight: bold;
+			color: #fff;
+			margin:0;
+			padding: 50px 60px 0  60px;
+		}
+		article > h2 > span {
+			font-weight: 100	
+		}
+		.fancy-1 {
+			background-color: #363
+		}
+		.fancy-2 {
+			background-color: #393
+		}
+		.fancy-2 > article > p {
+			color: #fff;	
+			padding: 0 60px;
+		}
+		.fancy-3 {
+			background-color: #3C3
+		}
+		
+		span.jump {
+			border: 2px solid #ccc;
+			border-radius: 5px;
+			background-color: #fff;
+			color: #666;	
+			padding: 0 3px;
+			margin: 0 5px 0 0;
+			cursor: pointer;
+		}
+		span.active {
+			background-color: #9C6;
+			color: #fff;
+		}
+		
+		.slider-1 {
+			margin: 40px auto 0 auto;
+			width: 800px;
+			position: relative;
+		}
+		.slider-1 .prev,
+		.slider-1 .next {
+			position: absolute;
+			width: 40px;
+			height: 72px;
+			display: block;
+			cursor: pointer;
+			top: 60px;	
+		}
+		.slider-1 .prev {
+			left: -20px;
+			background: transparent url(images/btn-previous.png) 0 0 no-repeat;
+		}
+		.slider-1 .next {
+			right: -20px;
+			background: transparent url(images/btn-next.png) 0 0 no-repeat;
+		}
+		.slider-1 .slider-paging {
+			position: absolute;
+			bottom:10px;
+			text-align: center;
+			width: 800px;
+		}
+		.slider-control {
+			position: absolute;
+			left: 10px;
+			bottom: 10px;
+			display: block;
+			background: #fff;	
+			width: 34px;
+			height: 34px;
+			cursor: pointer;
+			background: transparent url(images/btn-play-pause.png) 0 0 no-repeat;
+		}
+		.slider .play {
+			background-position: 0 0;
+		}
+		.slider .pause {
+			background-position: 0 -50px;
+		}
+	</style>
+</head>
+<body>
+
+	<!--
+		set all options via class names
+	-->
+	<div class="slider slider-1 slider-autoRotate slider-speed-slow">
+		<div class="slider-content-wrapper">
+			<ul class="slider-content clearfix">
+				<li class="fancy-1">
+					<article>
+						<img src="images/usr-slider-1.jpg" width="800" height="300" />
+					</article>
+				</li>
+				<li class="fancy-2">
+					<article>
+						<h2>SLIDE <span>#</span>2</h2>
+						<p>Plain HTML inside works aswell as other JS components</p>
+					</article>
+				</li>
+				<li class="fancy-3">
+					<article>
+						<h2>And #THREE, which is a magic number ;)</h2>
+					</article>
+				</li>
+			</ul>
+		</div>
+
+		<div class="slider-paging paging-numbers"></div>
+		<span class="prev" title="previous"></span>
+		<span class="next" title="next"></span>
+		<span class="slider-control"></span>
+
+	</div>
+
+
+
+	<script type="text/javascript" src="http://cdn.rightjs.org/right.js"></script>
+	<script type="text/javascript" src="RightJS-Carousel.js"></script>
+	<script type="text/javascript">
+		$(document).onReady(
+			function() {
+				$$(".slider").each(
+					function(e, i) {
+						new UICarousel(e);
+					}
+				);
+			}
+		);
+	</script>
+</body>
+</html>
