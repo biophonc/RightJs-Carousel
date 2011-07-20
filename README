@@ -1,16 +1,26 @@
 
-
+Dependencies: RightJS + Sizzle Plugin
+	
 
 CHANGELOG
 ---------------------------------------------------------------
 
-2011-05-24
+2011-07-20
 
-	* changed content selector from css class 
-	  to element seelector. 
-	  
-	* added autoId 
+	* fixed classList issue
 	
+	* fixed the issue for when roation is enabled but get's 
+	  paused and you then jump to another slide, the rotation 
+	  was restarted.
+	
+2011-07-19
+	
+	* added play/pause button
+	
+	* moved options from title attr to class names
+	
+	* added some more conditions for window on blur/focus 
+
 2011-07-18
 
 	* removed direct/static event binding in favour 
@@ -22,11 +32,14 @@ CHANGELOG
 	  switches between focus and blur state
 	  
 	* added basic demo html file
+	
 
-2011-07-19
+2011-05-24
+
+	* changed content selector from css class 
+	  to element seelector. 
+	  
+	* added autoId 
 	
-	* added play/pause button
-	
-	* moved options from title attr to class names
-	
-	* added some more conditions for window on blur/focus 
+
+
