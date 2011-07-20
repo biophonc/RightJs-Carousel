@@ -132,15 +132,26 @@ var UICarousel = new Class({
 	},
 	
 	setRotation: function() {
-		this.intvalIds[this.id] = setInterval(this.next.bindAsEventListener(this), 3000); // ms
+		this.intvalIds[this.id] = setInterval(this.next.bindAsEventListener(this), 3000); 
 	},
 	
 	removeRotation:  function() {
 		clearInterval(this.intvalIds[this.id]);
 	},
 	
+	// IE doesn't support it, therefore we'll need to work around it.
+	getClassList: function(obj) {
+		if(typeof obj.classList == "undefined") {
+			var trimmed = obj.className.replace(/^\s+|\s+$/g, ""); 
+			return trimmed.split(/\s+/);
+		} else {
+			return	obj.classList;
+		}
+	},
+	
 	pager: function(event) {
-		this.current = parseInt( event.target._.classList[1].substr(3) );
+		var classList = this.getClassList(event.target._);
+		this.current = parseInt( classList[1].substr(3) );
 		this.jump(this.current);
 	},
 	
@@ -166,6 +177,8 @@ var UICarousel = new Class({
 
 		return {next: nextIndex, previous: prevIndex};
 	},
+	
+	
 	
 	// does the math to jump to the next slide
 	next: function() {		
@@ -253,8 +266,11 @@ var UICarousel = new Class({
 	scroll: function(amount) {
 		// if autoRotate is enabled, it's a good thing to delay the execution
 		if(this.autoRotate) {
-			this.removeRotation();
-			this.setRotation();
+			// but only if the rotation is not paused ;)
+			if($(this.id).find("span.play").length===0) {
+				this.removeRotation();
+				this.setRotation();
+			}
 		}
 		if(this.is_pager) {
 			$(this.id).find(this.css_pager + '>.active').first().removeClass('active');
